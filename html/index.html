@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>PathProject - Calculadora CPM</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="icon" href="../recursos/chaidev.png" type="image/png">
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="logo-container">
+      <span class="site-title">PathProject</span>
+    </div>
+    <nav class="nav-links">
+      <a href="../html/nosotros.html">Sobre nosotros</a>
+      <a href="../html/cpm.html">¿Qué es CPM?</a>
+      <a href="../html/libros.html">Libros imprescindibles</a>
+    </nav>
+  </header>
+
+  <h1>Calculadora de Ruta Crítica (CPM)</h1>
+
+  <div class="input-section">
+    <input id="nombre" placeholder="Nombre actividad" />
+    <input id="duracion" type="number" placeholder="Duración" />
+    <input id="predecesores" placeholder="Predecesores (ej. A,B)" />
+    <button onclick="agregarActividad()">Añadir actividad</button>
+    <button class="btn-limpiar" onclick="limpiarTodo()">Limpiar todo</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Actividad</th>
+        <th>Duración</th>
+        <th>Predecesores</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-actividades"></tbody>
+  </table>
+
+  <button class="btn-cpm" onclick="calcularCPM()">Calcular CPM</button>
+
+  <div id="resultado"></div>
+  <div id="diagrama-red"></div>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <p><strong>Chaira M. Zapa Caraballo</strong></p>
+        <p>estudiante de Ingeniería de Sistemas</p>
+        <p>Email: chaira.zapa.edu.co</p>
+        <p>Corporación Universitaria del Caribe - CECAR</p>
+      </div>
+      <div class="footer-logos">
+        <img src="../recursos/logocecar.jpeg" alt="Logo 1" />
+        <img src="../recursos/chaidev.png" alt="Logo 2" />
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PathProject. chaidev. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  
+  <script src="../js/cpm.js"></script>
+  <script>
+    function limpiarTodo() {
+      document.getElementById("nombre").value = "";
+      document.getElementById("duracion").value = "";
+      document.getElementById("predecesores").value = "";
+      document.getElementById("tabla-actividades").innerHTML = "";
+      document.getElementById("resultado").innerHTML = "";
+      document.getElementById("diagrama-red").innerHTML = "";
+      if (typeof actividades !== 'undefined') actividades = [];
+    }
+  </script>
+</body>
+</html>
